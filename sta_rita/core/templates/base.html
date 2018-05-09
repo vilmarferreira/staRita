@@ -2,24 +2,24 @@
 <!DOCTYPE html>
 {% load static %}
 
-<html lang="en">
+<html lang="pt">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 
-		<title>True Church</title>
+		<title>{% block title %}Santa Rita de Cassia{% endblock %}</title>
 
 		<!-- Loading third party fonts -->
-		<link href="{% static 'fonts/novecento-font/novecento-font.css'%}" rel="stylesheet" type="text/css">
-		<link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'assets/fonts/novecento-font/novecento-font.css'%}" rel="stylesheet" type="text/css">
+		<link href="{% static 'assets/fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 
 		<!-- Loading main css file -->
 		<link rel="stylesheet" href="{% static 'assets/style.css' %}">
 
 		<!--[if lt IE 9]>
-		<script src="{% static 'js/ie-support/html5.js' %}"></script>
-		<script src="{% static 'js/ie-support/respond.js' %}"></script>
+		<script src="{% static 'assets/js/ie-support/html5.js' %}"></script>
+		<script src="{% static 'assets/js/ie-support/respond.js' %}"></script>
 		<![endif]-->
 
 	</head>
@@ -113,9 +113,9 @@
 		</div>
 
 
-		<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
-		<script src="{% static 'js/plugins.js' %}"></script>
-		<script src="{%static 'js/app.js' %}"></script>
+		<script src="{% static 'assets/js/jquery-1.11.1.min.js' %}"></script>
+		<script src="{% static 'assets/js/plugins.js' %}"></script>
+		<script src="{%static 'assets/js/app.js' %}"></script>
 
 	</body>
 
