@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}Galeria de Imagens - {{ block.super }}{% endblock %}
+
+
+{% block container %}
+<ul>
+    {% for album in lista %}
+    <li><a href="{{ album.get_absolute_url }}">{{ lista }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock container %}
