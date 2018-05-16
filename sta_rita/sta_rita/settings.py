@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     ##projeto
     'core',
-    'eventos',
+    'noticias',
     'galeria',
     'categorias',
+    'missas',
 ]
 
 MIDDLEWARE = [

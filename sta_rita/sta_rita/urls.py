@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('galeria/', include('galeria.urls', namespace="fotos")),
     path('teste/', include('categorias.urls', namespace="teste")),
+    path('horarios/', include('missas.urls', namespace='horarioMissa')),
 
     path('admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

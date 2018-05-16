@@ -33,7 +33,7 @@ class foto(models.Model):
     titulo = models.CharField(u'Titulo', max_length=100)
     slug = models.SlugField(max_length=100, blank=True, unique=True)
     descricao = models.TextField(blank=True)
-    original = ImageWithThumbsField(
+    original  = ImageWithThumbsField(
         null=True,
         blank=True,
         upload_to='galeria',
