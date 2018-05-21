@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load pagination %}
+{% block title %}
+    Noticias | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+
+								<h2 class="section-title">Últimas noticias</h2>
+								<ul class="seremon-list">
+									{%for noticia in noticia_list%}
+									<li>
+										<img src="{{noticia.imgNoticia.url|default_if_none:'#' }}" width="61" height="61" alt="">
+										<div class="seremon-detail">
+											<h3 class="seremon-title"><a href="{{noticia.get_absolute_url}}">{{noticia.tituloNoticia |default_if_none:'#'}}</a></h3>
+											<div class="seremon-meta">
+												<div class="pastor"><i class="fa fa-user"></i> Alan Ray</div>
+												<div class="date"><i class="fa fa-calendar"></i> {{noticia.data|default_if_none:'#'}}</div>
+											</div>
+										</div>
+									</li>
+									{%endfor%}
+								</ul>
+
+
+
+        {% pagination request paginator page_obj %}
+
+{% endblock %}

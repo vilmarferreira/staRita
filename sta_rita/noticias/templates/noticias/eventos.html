@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% load pagination %}
+{% block title %}
+    Eventos | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+
+								<h2 class="section-title">Próximos eventos</h2>
+								<ul class="event-list">
+									{% for evento in noticia_list    %}
+
+									<li>
+										<a href="{{evento.get_absolute_url}}">
+											<h3 class="event-title">{{ evento.tituloNoticia }}</h3>
+											<span class="event-meta">
+												<span><i class="fa fa-calendar"></i>{{evento.data}}</span>
+												<span><i class="fa fa-map-marker"></i> {{evento.paroquia}}</span>
+
+											</span>
+										</a>
+									</li>
+
+								</ul>
+								{%endfor%}
+
+{% endblock %}

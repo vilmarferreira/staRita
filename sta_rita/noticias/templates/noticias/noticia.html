@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block container %}
+{% block title %}
+    {{ noticia.tituloNoticia }} | {{ block.super }}
+{% endblock %}
+
+
+<div class="row">
+					<div class="9u">
+
+
+                        <section>
+                            {% if noticia.imgNoticia %}
+                            <img src="{{noticia.imgNoticia.url}}" >
+                            {% endif %}
+                            <p><em>{{noticia.tituloNoticia}}</em></p>
+							<header>
+								<h2>{{noticia}}</h2>
+								<span class="byline">Augue praesent a lacus at urna congue rutrum</span>
+							</header>
+							<p>{{noticia.descricao|linebreaks}}</p>
+						</section>
+					</div>
+</div>
+
+
+
+{%endblock%}

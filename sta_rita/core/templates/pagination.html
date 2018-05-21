@@ -1,0 +1,44 @@
+<style>
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination a.active {
+    background-color: #8f7655;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <nav>
+           <div class="pagination">
+  {% for page in paginator.page_range %}
+      <a href="?page={{ page }}"  {% if page_obj.number == page %} class="active" {% endif %}>{{ page }}</a>
+  {% endfor %}
+
+
+
+</div>
+        </nav>
+    </div>
+</div>
+
+
+
+
+
+

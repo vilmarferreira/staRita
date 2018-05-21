@@ -1,9 +1,7 @@
 
 from django.urls import reverse
 from django.db import models
-from datetime import datetime
 from django_thumbs.db.models import ImageWithThumbsField
-#from django_thumbs.db.models import ImageWithThumbsFieldFile
 
 # Create your models here.
 class Album(models.Model):

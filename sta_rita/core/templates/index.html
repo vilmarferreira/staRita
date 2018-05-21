@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}
+    Index | {{ block.super }}
+{% endblock %}
 {% block container %}
 
 	{%comment%}
@@ -8,15 +11,7 @@
 	<div class="hero">
 				<div class="slides">
 					{% for destaque in ftsDestaques%}
-					<li data-bg-image="{{destaque.banner.url}}">
-							{%comment%}
-								<div class="container">
-									<div class="slide-content">
-										<small class="slide-subtitle">True Church</small>
-										<h2 class="slide-title">Place with a real love</h2>
-									</div>
-								</div>
-							{%endcomment%}
+					<li data-bg-image="{{destaque.imgNoticia.url|default_if_none:'#' }}">
 					</li>
 					{%endfor%}
 				</div>
@@ -35,7 +30,7 @@
 					<div class="container">
 						<div class="row">
 							{%comment%}
-								Eventos paroquiais
+								Eventos
 							{%endcomment%}
 							<div class="col-md-6">
 								<h2 class="section-title">Próximos eventos</h2>
@@ -43,7 +38,7 @@
 									{% for evento in eventos%}
 
 									<li>
-										<a href="#">
+										<a href="{{evento.get_absolute_url}}">
 											<h3 class="event-title">{{ evento.tituloNoticia }}</h3>
 											<span class="event-meta">
 												<span><i class="fa fa-calendar"></i>{{evento.data}}</span>
@@ -52,11 +47,11 @@
 											</span>
 										</a>
 									</li>
-									{%endfor%}
-								</ul>
 
+								</ul>
+								{%endfor%}
 								<div class="text-center">
-									<a href="#" class="button">Outros eventos</a>
+									<a href="{% url 'noticias:EventosListView' %}" class="button">Outros eventos</a>
 								</div>
 							</div>
 
@@ -68,14 +63,14 @@
 							<div class="col-md-6">
 								<h2 class="section-title">Últimas noticias</h2>
 								<ul class="seremon-list">
-									{%for notica in noticias%}
+									{%for noticia in noticias%}
 									<li>
-										<img src="{{notica.banner.url}}" width="61" height="61" alt="">
+										<img src="{{noticia.imgNoticia.url|default_if_none:'#' }}" width="61" height="61" alt="">
 										<div class="seremon-detail">
-											<h3 class="seremon-title"><a href="#">{{notica.nomeEvento}}</a></h3>
+											<h3 class="seremon-title"><a href="{{noticia.get_absolute_url}}">{{noticia.tituloNoticia}}</a></h3>
 											<div class="seremon-meta">
 												<div class="pastor"><i class="fa fa-user"></i> Alan Ray</div>
-												<div class="date"><i class="fa fa-calendar"></i> {{notica.data}}}</div>
+												<div class="date"><i class="fa fa-calendar"></i> {{noticia.data}}</div>
 											</div>
 										</div>
 									</li>
@@ -83,7 +78,7 @@
 								</ul>
 
 								<div class="text-center">
-									<a href="#" class="button">Outras notícias</a>
+									<a href="{% url 'noticias:NewsListView' %}" class="button">Outras notícias</a>
 								</div>
 							</div>
 						</div> <!-- .row -->
