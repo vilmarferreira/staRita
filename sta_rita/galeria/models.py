@@ -1,7 +1,7 @@
 
 from django.urls import reverse
 from django.db import models
-from django_thumbs.db.models import ImageWithThumbsField
+
 
 # Create your models here.
 class Album(models.Model):
@@ -31,12 +31,12 @@ class foto(models.Model):
     titulo = models.CharField(u'Titulo', max_length=100)
     slug = models.SlugField(max_length=100, blank=True, unique=True)
     descricao = models.TextField(blank=True)
-    original  = ImageWithThumbsField(
-        null=True,
-        blank=True,
-        upload_to='galeria',
-        sizes=((125, 125), (200, 200), (500, 500))
-    )
+    # original  = ImageWithThumbsField(
+    #     null=True,
+    #     blank=True,
+    #     upload_to='galeria',
+    #     sizes=((125, 125), (200, 200), (500, 500))
+    # )
     dataPublicacao = models.DateTimeField(auto_now=True)
 
     def __str__(self):

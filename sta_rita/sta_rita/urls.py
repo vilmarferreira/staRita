@@ -26,6 +26,7 @@ urlpatterns = [
     path('galeria/', include('galeria.urls', namespace="fotos")),
     path('horarios/', include('missas.urls', namespace='horarioMissa')),
     path ('noticias/', include('noticias.urls',namespace='noticias')),
-
+    path('jet/', include('jet.urls', 'jet')),
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     path('admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
